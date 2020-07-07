@@ -1,6 +1,7 @@
 import os
 
 from common.util.path import dirname
+from ..env_confs import Mysql
 
 BASE_DIR = dirname(os.path.abspath(__file__), repeat=3)
 
@@ -51,15 +52,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# DATABASES = {
+#     'default': {
+#         'NAME': 'test',
+#         'USER': 'root',
+#         'PASSWORD': '123',
+#         'PORT': 3306,
+#         'HOST': '127.0.0.1',
+#         'ENGINE': 'django.db.backends.mysql'
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'NAME': 'test',
-        'USER': 'root',
-        'PASSWORD': '123',
-        'PORT': 3306,
-        'HOST': '127.0.0.1',
-        'ENGINE': 'django.db.backends.mysql'
-    }
+    'default': Mysql.conf
 }
 
 STATIC_URL = '/static/'
